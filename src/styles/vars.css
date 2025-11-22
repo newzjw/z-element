@@ -1,0 +1,73 @@
+:root {
+  /* colors */
+  --zjw-color-white: #ffffff;
+  --zjw-color-black: #000000;
+  --colors: (
+    primary: #409eff,
+    success: #67c23a,
+    warning: #e6a23c,
+    danger: #f56c6c,
+    info: #909399
+  );
+
+  @each $val, $color in var(--colors) {
+    --zjw-color-$(val): $(color);
+    @for $i from 3 to 9 by 2 {
+      --zjw-color-$(val)-light-$(i): mix(#fff, $(color), .$(i))
+    }
+    --zjw-color-$(val)-light-8: mix(#fff, $(color), .8);
+    --zjw-color-$(val)-dark-2: mix(#000, $(color), .2);
+  }
+
+  --zjw-bg-color: #ffffff;
+  --zjw-bg-color-page: #f2f3f5;
+  --zjw-bg-color-overlay: #ffffff;
+  --zjw-text-color-primary: #303133;
+  --zjw-text-color-regular: #606266;
+  --zjw-text-color-secondary: #909399;
+  --zjw-text-color-placeholder: #a8abb2;
+  --zjw-text-color-disabled: #c0c4cc;
+  --zjw-border-color: #dcdfe6;
+  --zjw-border-color-light: #e4e7ed;
+  --zjw-border-color-lighter: #ebeef5;
+  --zjw-border-color-extra-light: #f2f6fc;
+  --zjw-border-color-dark: #d4d7de;
+  --zjw-border-color-darker: #cdd0d6;
+  --zjw-fill-color: #f0f2f5;
+  --zjw-fill-color-light: #f5f7fa;
+  --zjw-fill-color-lighter: #fafafa;
+  --zjw-fill-color-extra-light: #fafcff;
+  --zjw-fill-color-dark: #ebedf0;
+  --zjw-fill-color-darker: #e6e8eb;
+  --zjw-fill-color-blank: #ffffff;
+
+  /* border */
+  --zjw-border-width: 1px;
+  --zjw-border-style: solid;
+  --zjw-border-color-hover: var(--zjw-text-color-disabled);
+  --zjw-border: var(--zjw-border-width) var(--zjw-border-style) var(--zjw-border-color);
+  --zjw-border-radius-base: 4px;
+  --zjw-border-radius-small: 2px;
+  --zjw-border-radius-round: 20px;
+  --zjw-border-radius-circle: 100%;
+
+  /*font*/
+  --zjw-font-size-extra-large: 20px;
+  --zjw-font-size-large: 18px;
+  --zjw-font-size-medium: 16px;
+  --zjw-font-size-base: 14px;
+  --zjw-font-size-small: 13px;
+  --zjw-font-size-extra-small: 12px;
+  --zjw-font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial, sans-serif;
+  --zjw-font-weight-primary: 500;
+
+  /*disabled*/
+  --zjw-disabled-bg-color: var(--zjw-fill-color-light);
+  --zjw-disabled-text-color: var(--zjw-text-color-placeholder);
+  --zjw-disabled-border-color: var(--zjw-border-color-light);
+  
+  /*animation*/
+  --zjw-transition-duration: .3s;
+  --zjw-transition-duration-fast: .2s;
+
+}
