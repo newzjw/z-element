@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import ZjwButton from '@/components/Button/Button.vue';
 import type { ButtonInstance } from '@/components/Button/types';
+import ZjwCollapse from '@/components/Collapse/Collapse.vue';
+import ZjwCollapseItem from '@/components/Collapse/CollapseItem.vue';
 import { onMounted, ref } from 'vue';
 
 // const buttonRef = ref<InstanceType<typeof ZjwButton> | null>(null)
@@ -10,10 +12,12 @@ import { onMounted, ref } from 'vue';
 // 表示这个ref可以存储ButtonInstance类型或null值，(null) - 初始化ref的值为null，因为在组件挂载前，ref引用的组件实例还不存在
 const buttonRef = ref<ButtonInstance | null>(null)
 
+const openedValue = ref(['d'])
+
 onMounted(() => {
   // Vue会在组件挂载后将ZjwButton组件实例赋值给buttonRef
   if (buttonRef.value) {
-    console.log(buttonRef.value.ref)
+    // console.log(buttonRef.value.ref)
   }
 })
 </script>
@@ -38,6 +42,21 @@ onMounted(() => {
     <ZjwButton size="small">Small</ZjwButton><br/><br/>
     <ZjwButton size="large" loading>Loading</ZjwButton>
     <ZjwButton size="large" icon="arrow-up">Icon</ZjwButton><br/><br/>  
+
+    <ZjwCollapse v-model="openedValue">
+      <ZjwCollapseItem name="a" title="项目11">
+        项目1的内容
+      </ZjwCollapseItem>
+      <ZjwCollapseItem name="b" title="项目22">
+        项目2的内容
+      </ZjwCollapseItem>
+      <ZjwCollapseItem name="c" title="项目33" disabled>
+        项目3的内容
+      </ZjwCollapseItem>
+      <ZjwCollapseItem name="d" title="项目44">
+        项目4的内容
+      </ZjwCollapseItem>
+    </ZjwCollapse>
 </template>
 
 <style scoped>

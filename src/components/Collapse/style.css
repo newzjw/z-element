@@ -1,0 +1,57 @@
+.zjw-collapse {
+  --zjw-collapse-border-color: var(--zjw-border-color-light);
+  --zjw-collapse-header-height: 48px;
+  --zjw-collapse-header-bg-color: var(--zjw-fill-color-blank);
+  --zjw-collapse-header-text-color: var(--zjw-text-color-primary);
+  --zjw-collapse-header-font-size: 13px;
+  --zjw-collapse-content-bg-color: var(--zjw-fill-color-blank);
+  --zjw-collapse-content-font-size: 13px;
+  --zjw-collapse-content-text-color: var(--zjw-text-color-primary);
+  --zjw-collapse-disabled-text-color: var(--zjw-disabled-text-color);
+  --zjw-collapse-disabled-border-color: var(--zjw-border-color-lighter);
+  border-top: 1px solid var(--zjw-collapse-border-color);
+  border-bottom: 1px solid var(--zjw-collapse-border-color);
+}
+.zjw-collapse-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--zjw-collapse-header-height);
+  line-height: var(--zjw-collapse-header-height);
+  background-color: var(--zjw-collapse-header-bg-color);
+  color: var(--zjw-collapse-header-text-color);
+  cursor: pointer;
+  font-size: var(--zjw-collapse-header-font-size);
+  font-weight: 500;
+  transition: border-bottom-color var(--zjw-transition-duration);
+  outline: none;
+  border-bottom: 1px solid var(--zjw-collapse-border-color);
+  &.is-disabled {
+    color: var(--zjw-collapse-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+  }
+  &.is-active {
+    border-bottom-color: transparent;
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+  .header-angle {
+    transition: transform var(--zjw-transition-duration);
+  }
+}
+.zjw-collapse-item__content {
+  will-change: height;
+  background-color: var(--zjw-collapse-content-bg-color);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: var(--zjw-collapse-content-font-size);
+  color: var(--zjw-collapse-content-text-color);
+  border-bottom: 1px solid var(--zjw-collapse-border-color);
+  padding-bottom: 25px;
+}
+.slide-enter-active, .slide-leave-active {
+  transition: height var(--zjw-transition-duration);
+}
+
