@@ -10,17 +10,23 @@
         'is-circle': circle,
         'is-disabled': disabled,
       }"
-      :disabled="disabled"
+      :disabled="disabled || loading"
       :autofocus="autoFocus"
       :type="nativeType"
     >
-      test button
+      <ZjwIcon v-if="loading" spin icon="spinner"></ZjwIcon>
+      <ZjwIcon v-if="icon" :icon="icon"></ZjwIcon>
+      <span>
+        <slot></slot>
+      </span>
+      
     </button>
 </template>
 
 <script setup lang="ts">
 // Component logic here
 import { ref } from 'vue';
+import ZjwIcon from '../Icon/Icon.vue';
 import { ButtonProps } from './types';
 defineOptions({
   name: 'ZjwButton',

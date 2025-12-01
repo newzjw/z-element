@@ -4,14 +4,15 @@
     :class="{'is-disabled': disabled}"
   >
     <div 
-      class="zjw-collapse__item-header"
+      class="zjw-collapse-item__header"
       :class="{
-        'is-disabled': disabled
+        'is-disabled': disabled,
+        'is-active': isActive
       }"
       @click="handleClick"
     >
       <slot name="title">{{title}}</slot>
-      
+      <ZjwIcon icon="angle-right" class="header-angle" />
     </div>
     <Transition name="slide" v-on="transitionEvents">
       <div class="zjw-collapse-item__wrapper" v-show="isActive">
@@ -27,6 +28,7 @@
 
 <script setup lang="ts">
 // 导入组件、库或工具
+import ZjwIcon from '@/components/Icon/Icon.vue';
 import { computed, inject } from 'vue';
 import type { CollapseItemProps } from './types';
 import { CollapseContextKey } from './types';

@@ -14,6 +14,7 @@ export interface ButtonProps {
   // 原生属性
   autoFocus?: boolean;
   loading?: boolean;
+  icon?: string;
 }
 
 export interface ButtonInstance {

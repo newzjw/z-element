@@ -3,6 +3,7 @@ import ZjwButton from '@/components/Button/Button.vue';
 import type { ButtonInstance } from '@/components/Button/types';
 import ZjwCollapse from '@/components/Collapse/Collapse.vue';
 import ZjwCollapseItem from '@/components/Collapse/CollapseItem.vue';
+import ZjwIcon from '@/components/Icon/Icon.vue';
 import { onMounted, ref } from 'vue';
 
 // const buttonRef = ref<InstanceType<typeof ZjwButton> | null>(null)
@@ -19,6 +20,9 @@ onMounted(() => {
   if (buttonRef.value) {
     // console.log(buttonRef.value.ref)
   }
+  setTimeout(() => {
+    openedValue.value = ['a', 'b']
+  }, 2000)
 })
 </script>
 
@@ -40,7 +44,7 @@ onMounted(() => {
     <ZjwButton type="danger" plain>Danger</ZjwButton><br/><br/>
     <ZjwButton size="large">Large</ZjwButton>
     <ZjwButton size="small">Small</ZjwButton><br/><br/>
-    <ZjwButton size="large" loading>Loading</ZjwButton>
+    <ZjwButton size="large" loading>Loading...</ZjwButton>
     <ZjwButton size="large" icon="arrow-up">Icon</ZjwButton><br/><br/>  
 
     <ZjwCollapse v-model="openedValue">
@@ -57,6 +61,21 @@ onMounted(() => {
         项目4的内容
       </ZjwCollapseItem>
     </ZjwCollapse>
+     <!-- 使用solid样式图标 -->
+    <!-- <font-awesome-icon icon="user" /> -->
+    
+    <!-- 使用带前缀的图标（如果导入了其他样式如regular或brands） -->
+    <!-- <font-awesome-icon :icon="['fas', 'user']" /> -->
+    
+    <!-- 设置大小 -->
+    <!-- <font-awesome-icon icon="user" size="2x" /> -->
+    
+    <!-- 添加旋转效果 -->
+    <!-- <font-awesome-icon icon="spinner" spin /> -->
+     <ZjwIcon icon="arrow-up" border size="10x" title="向上箭头"
+     type="danger"/>
+     <ZjwIcon icon="arrow-up" border size="10x" title="向上箭头"
+     type="primary" color="yellow"/>
 </template>
 
 <style scoped>

@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > renders correctly 1`] = `
+"<button data-v-ceff2a60=\\"\\" class=\\"zjw-button zjw-button--primary zjw-button--medium\\" type=\\"button\\">
+  <!--v-if-->
+  <!--v-if--><span data-v-ceff2a60=\\"\\">button</span>
+</button>"
+`;

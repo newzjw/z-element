@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 // 导入组件、库或工具
-import { provide, ref } from 'vue';
+import { provide, ref, watch } from 'vue';
 import type { CollapseEmits, CollapseProps, NameType } from './types';
 import { CollapseContextKey } from './types';
 // Props 定义
@@ -16,6 +16,10 @@ defineOptions({
 const props = defineProps<CollapseProps>();
 const emits = defineEmits<CollapseEmits>();
 const activeNames = ref<NameType[]>(props.modelValue || []);
+// 确保了组件内部状态与外部传入的modelValue保持同步。
+watch(() => props.modelValue, () => {
+  activeNames.value = props.modelValue || [];
+})
 if (props.accordion && activeNames.value.length > 1) {
   console.warn('accordion 模式下，只能激活一个项目');
   // 只保留第一个激活项
