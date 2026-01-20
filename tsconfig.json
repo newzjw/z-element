@@ -18,6 +18,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
+    "jsxImportSource": "vue",  // 添加此行，指定 Vue 处理 JSX 类型
 
     /* Linting */
     "strict": true,

@@ -25,8 +25,8 @@
 
 <script setup lang="ts">
 // Component logic here
+import ZjwIcon from '@/components/Icon/Icon.vue';
 import { ref } from 'vue';
-import ZjwIcon from '../Icon/Icon.vue';
 import { ButtonProps } from './types';
 defineOptions({
   name: 'ZjwButton',

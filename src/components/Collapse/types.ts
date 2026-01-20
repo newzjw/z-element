@@ -2,7 +2,7 @@ import type { InjectionKey, Ref } from 'vue';
 export type NameType = string | number
 
 export interface CollapseProps {
-  modelValue?: NameType[];
+  modelValue: NameType[];
   accordion?: boolean;
 }
 

@@ -47,17 +47,22 @@ if (props.accordion && activeNames.value.length > 1) {
 //   emit('click', 'clicked');
 // };
 const handleItemClick = (item: NameType) => {
-  let _activeNames = [...activeNames.value];
+  let _activeNames = [...activeNames.value]; // 创建数组副本
   const index = _activeNames.indexOf(item);
+  
   if (props.accordion) {
-    _activeNames = [activeNames.value[0] === item ? '' : item];
+    // 手风琴模式：点击已激活项则取消激活（使用空数组）
+    _activeNames = _activeNames[0] === item ? [] : [item];
   } else {
+    // 非手风琴模式：切换激活状态
     if (index > -1) {
       _activeNames.splice(index, 1);
     } else {
       _activeNames.push(item);
     }
   }
+  
+  // 更新响应式状态
   activeNames.value = _activeNames;
   // 同步更新v-model绑定的值
   emits('update:modelValue', _activeNames);
